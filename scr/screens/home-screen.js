@@ -24,7 +24,7 @@ export default class Homescreen extends Component {
             <Button 
             style = {[elements.circleButton(200)]}
             type = "clear"
-            onPress={() => this.props.navigation.navigate('About')}
+            onPress={() => this.props.navigation.navigate('Camera')}
             title = "Go!"
             titleStyle = {DESIGNS.button_text}
             />
