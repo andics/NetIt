@@ -24,6 +24,10 @@
       "**/*"
     ],
     "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription":
+         "Netit uses your camera to capture the real life game you are playing and determine the score of each player."
+      },
       "supportsTablet": true
     }
   }

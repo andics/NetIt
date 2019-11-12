@@ -4,13 +4,38 @@ import { Button, Icon } from 'react-native-elements'
 import COLORS from '../../assets/styles/colors';
 import DESIGNS from '../../assets/styles/designs';
 import Elements from '../utils/dynamic_custom_elements';
-import * as Permissions from 'expo-permissions';
-import { Linking } from 'expo';
-import { Camera } from 'expo-camera';
 this.elements = new Elements()
 
 export default class Homescreen extends Component {
-    state = {
+  /*PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
+    if (result) {
+      console.log("User accept");
+    } else {
+       console.log("User refuse");
+      }
+  }); 
+   //////
+  requestCameraPermission = async () => {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: 'Cool Photo App Camera Permission',
+          message:
+            'Cool Photo App needs access to your camera ' +
+            'so you can take awesome pictures.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log('You can use the camera');
+      } else {
+        console.log('Camera permission denied');
+      }
+    }
+    // 
+    (state = {
         status: null,
       };
       
@@ -26,8 +51,8 @@ export default class Homescreen extends Component {
             this.props.navigation.navigate('Camera');
         }
     
-        //const { data } = await Camera.getCameraAsync();
-      }
+        const { data } = await Camera.getCameraAsync();
+      }*/
 
     render() {
       return (
@@ -45,7 +70,7 @@ export default class Homescreen extends Component {
             <Button 
             style = {[elements.circleButton(200)]}
             type = "clear"
-            onPress={this.permissionFlow}
+            onPress={() => this.props.navigation.navigate('Camera')}
             title = "Go!"
             titleStyle = {DESIGNS.button_text}
             />
