@@ -4,10 +4,31 @@ import { Button, Icon } from 'react-native-elements'
 import COLORS from '../../assets/styles/colors';
 import DESIGNS from '../../assets/styles/designs';
 import Elements from '../utils/dynamic_custom_elements';
-
+import * as Permissions from 'expo-permissions';
+import { Linking } from 'expo';
+import { Camera } from 'expo-camera';
 this.elements = new Elements()
 
 export default class Homescreen extends Component {
+    state = {
+        status: null,
+      };
+      
+      permissionFlow = async () => {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    
+        this.setState({ status });
+    
+        if(status !== 'granted'){
+          Linking.openURL('app-settings:');
+          return;
+        }else{
+            this.props.navigation.navigate('Camera');
+        }
+    
+        //const { data } = await Camera.getCameraAsync();
+      }
+
     render() {
       return (
         <View style={DESIGNS.container_home}>
@@ -24,7 +45,7 @@ export default class Homescreen extends Component {
             <Button 
             style = {[elements.circleButton(200)]}
             type = "clear"
-            onPress={() => this.props.navigation.navigate('Camera')}
+            onPress={this.permissionFlow}
             title = "Go!"
             titleStyle = {DESIGNS.button_text}
             />
