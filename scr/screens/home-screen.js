@@ -7,53 +7,6 @@ import Elements from '../utils/dynamic_custom_elements';
 this.elements = new Elements()
 
 export default class Homescreen extends Component {
-  /*PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
-    if (result) {
-      console.log("User accept");
-    } else {
-       console.log("User refuse");
-      }
-  }); 
-   //////
-  requestCameraPermission = async () => {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-        {
-          title: 'Cool Photo App Camera Permission',
-          message:
-            'Cool Photo App needs access to your camera ' +
-            'so you can take awesome pictures.',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('You can use the camera');
-      } else {
-        console.log('Camera permission denied');
-      }
-    }
-    // 
-    (state = {
-        status: null,
-      };
-      
-      permissionFlow = async () => {
-        const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    
-        this.setState({ status });
-    
-        if(status !== 'granted'){
-          Linking.openURL('app-settings:');
-          return;
-        }else{
-            this.props.navigation.navigate('Camera');
-        }
-    
-        const { data } = await Camera.getCameraAsync();
-      }*/
-
     render() {
       return (
         <View style={DESIGNS.container_home}>
